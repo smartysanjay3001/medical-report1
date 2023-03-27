@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>
+   body{
+    background-image: url(WallpaperDog-20356363.jpg);
+    background-repeat: no-repeat;
+    }
+    h1{
+        text-align: center;
+        font-style: italic;
+    }
+    h4{
+        color: blueviolet;
+        text-decoration: underline;
+        font-style: italic;
+    }
+    p{
+        color: navy;
+    }
+</style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Report</title>
+    <h1 style="color:orangered ;text-decoration:underline">Patient Summary</h1>
+</head>
+<body>
+    <script>
+    class GrandParent{
+        medicalRecord(){
+         var Name= prompt("enter name");
+         this.Age=parseInt(prompt("enter age"));
+         this.weight= parseInt(prompt("enter weight"));
+         this.height=parseFloat(prompt("enter height"));
+         document.write("<h4>PATIENT DETAILS</h4>");
+         document.write("your NAME:" + Name +"<br>");
+         document.write("your AGE:" + this.Age + "<br>");
+         document.write("your Weight:" + this.weight + "Kg" + "<br>");
+         document.write("your Height:" + this.height + "m" + "<br>");
+        }
+        sugarTest(){
+             document.write("<h4>SUGAR TEST;</h4>")
+            var fasting=parseInt(prompt("enter fasting sugar level"));
+            var aftereating=parseInt(prompt("enter after eating sugar level"));
+            document.write("your fasting sugar level" + fasting + "mg/dl" + "<br>");
+            document.write("your aftereating sugar level" + aftereating + "mg/dl" + "<br>");
+
+            if((fasting>=80 && fasting<99) && (aftereating>=170 && aftereating<200)){
+                return "Normal";
+            }
+            else if((fasting>101 && fasting<=125) && (aftereating>200 && aftereating<=230)){
+                return "Prediabetic";
+            }
+            else if((fasting>126 && fasting<200) && (aftereating>231 && aftereating<=300)){
+                return "Diabetic";
+            }
+            else if((fasting>=80 && fasting<=125)&&(aftereating>200 && aftereating<=230)){
+                return "UpNormal";
+            }
+            else if ((fasting>=101 && fasting<=125) && (aftereating>=231 )){
+                return "Unknown";
+            }
+            else{
+                return "Low";
+            }
+        }
+        sugarPrescription(){
+            const sugarTestResult = this.sugarTest();
+            switch(sugarTestResult){
+                case "Normal":{
+                    document.write("your sugar level is normal so don't take any medicine" + "<br>")
+                    break;
+                }
+                case "Prediabetic":{
+                    document.write("your prediabetic" + "<br>");
+                    document.write("Take Metformin 20mg per day" + "<br>");
+                    document.write("FOODS;broccoli,seafood,nuts,pumpkin and okra" +"<br>");
+                    document.write("consult doctor" + "<br>");
+                    break;
+                }
+                case "Diabetic":{
+                    document.write("your diabetic" + "<br>");
+                    document.write("Take Metformin 40mg per day and lantus" + "<br>");
+                    document.write("FOODS;broccoli,seafood,nuts,pumpkin and okra" + "<br>");
+                    document.write("consult doctor" + "<br");
+                    break;
+                }
+                case "UpNormal":{
+                    document.write("your upnormal so consult  the doctor" + "<br>");
+                    break;
+                }
+                case "Unknown":{
+                    document.write("please consider doctor" + "<br>");
+                    break;
+                }
+                case "Low":{
+                    document.write("your low sugar" + "<br>");
+                    document.write("Take some high carbohydrates foods" + "<br>");
+                    break;
+                }
+                default:{
+                    document.write("invalid function" + "<br>");
+                    break;
+                }
+                
+            }
+        }
+        Bp(){
+        var systolic=parseInt(prompt("enter systolic"));
+        var diastolic=parseInt(prompt("enter  the diastolic"));
+        document.write("<h4>BLOOD PRESSURE</h4>");
+        document.write("your systolic blood pressure:" + systolic +  "mm/Hg" + "<br>");
+        document.write("your diastolic blood pressure:" + diastolic + "mm/Hg " + "<br>");
+        if((systolic>10 && systolic<90) && ( diastolic>10 && diastolic<60)){
+            return "low";
+        }
+        else if(( systolic>91 && systolic<120)&&(diastolic>61 && diastolic<80)){
+            return "normal";
+        }
+        else if((systolic>120 && systolic<129) && (diastolic>61 && diastolic<80)){
+            return "elevated";
+        }
+        else if((systolic>=130 && systolic<139 ) && (diastolic>=80 && diastolic<89)){
+            return "hypertension1";
+        }
+        else if((systolic>140 && systolic<180) && (diastolic>90 && diastolic<119)){
+            return "hypertension2";
+        }
+        else{
+            return "hypertensioncrisis"
+        }
+    }
+    prescriptionBp(){
+        const BpTest = this.Bp();
+        switch(BpTest){
+            case "low":{
+                document.write(" your blood pressure is low\n.Take Midodrine,Terlipression\n.FOODS; salty foods,soup,smokedfish and pickleditems\n. Consult Doctor\n" + "<br>");
+            }
+            break;
+            case "normal":{
+                document.write("your blood pressure is normal don't take medicine" + "<br>");
+                break;
+            }
+            case "elevated":{
+                document.write("your blood pressure is elevated" + "<br>");
+                document.write("Take Midodrine,Terlipression" + "<br>");
+                document.write("FOODS; salty foods,soup,smokedfish and pickleditems" + "<br>");
+                document.write("Consult Doctor" + "<br>");
+                break;
+            }
+            case "hypertension1":{
+                document.write(" your blood pressure is hypertension 1" + "<br>");
+                document.write("Take  Enalaprill,felodipine" + "<br>" );
+                document.write("fruits, apples,fish,eggs and bread" + "<br>");
+                document.write("Consult Doctor" + "<br>" );
+                break;
+            }
+            case "hypertension2":{
+                document.write("< your blood pressure is hypertension 2" + "<br>");
+                document.write("Take amlodipine,felodipine" + "<br>");
+                document.write("FOODS; low fats dairy foods,limit sodium,sweet and sugary" + "<br>");
+                document.write("Consult Doctor" + "<br>");
+                break;
+            }
+            case "hypertensioncrisis":{
+                document.write(" your blood pressure is hypertension crisis" + "<br>");
+                document.write("Take clevidipine,fenoldopam,nitrogylycerin" + "<br>");
+                document.write("FOODS; dietary,vegetables,whoegrains,low fat dairy and beans" + "<br>");
+                document.write("consult Doctor" + "<br>");
+                break;
+            }
+            default:{
+                document.write("not valid");
+            }
+            break;
+
+        }
+    }
+    hemoglobin(){
+            this.Age;
+            document.write("<h4>HEMOGLOBIN TEST</h4>");
+            var gender =parseInt(prompt("1. Male \n2. Female \n3. Child \nEnter option:"));
+            switch(gender){
+                case (1):{
+                    var hemoglobin = parseInt(prompt("enter hemoglobin level"));
+                    document.write("your Hemoglobin level:" + hemoglobin + "<br>");
+                    if((this.Age>12 && this.Age<18) && (hemoglobin>13 && hemoglobin<16)){
+                        document.write("your hemoglobin level normal don't take any medicine" + "<br>");        
+                    }
+                    else if((this.Age>18) && (hemoglobin>13 && hemoglobin<17)){
+                        document.write("your hemoglobin level normal so don't take any medicine" + "<br>");
+                    }
+                    else if((this.Age>18) && (hemoglobin>17)){
+                    document.write("your hemoglobin level high take medicine" + "<br>");
+                    }
+                    else {
+                        document.write("your hemoglobin level low consult the doctor" + "<br>");
+                    } 
+                    break; 
+                }
+                case(2):{
+                    var hemoglobin = parseInt(prompt("enter hemoglobin level"));
+                    document.write("your Hemoglobin level:" + hemoglobin + "<br>");
+                    if((this.Age>12 && this.Age<18) && (hemoglobin>12 && hemoglobin<16)){
+                        document.write("your hemoglobin level normal don't take any medicine" + "<br>");        
+                    }
+                    else if((this.Age>18) && (hemoglobin>12 && hemoglobin<15)){
+                        document.write("your hemoglobin level normal so don't take any medicine" + "<br");
+                    }
+                    else if((this.Age>18) && (hemoglobin>16)){
+                    document.write("your hemoglobin level high take medicine" + "<br>");
+                    }
+                    else {
+                        document.write("your hemoglobin level low consult the doctor" + "<br>");
+                    } 
+                    break;  
+                }
+                case (3):{
+                    var hemoglobin = parseInt(prompt("enter hemoglobin level"));
+                    document.write("your Hemoglobin level:" + hemoglobin + "<br>");
+                    if((this.Age>1 && this.Age<2) && (hemoglobin>10 && hemoglobin<13)){
+                        document.write("your hemoglobin level normal don't take any medicine" + "<br>");        
+                    }
+                    else if((this.Age>2 && this.Age<6) && (hemoglobin>11.5 && hemoglobin<13)){
+                        document.write("your hemoglobin level normal so don't take any medicine" + "<br");
+                    }
+                    else if((this.Age>6 && this.Age<12) && (hemoglobin>11.5 && hemoglobin<15)){
+                    document.write("your hemoglobin level normal don't take medicine" + "<br>");
+                    }
+                    else if(hemoglobin>16){
+                        document.write("your hemoglobin level is high consult the doctor" +"<br>");
+                    }
+                    else {
+                        document.write("your hemoglobin level low consult the doctor" + "<br>");
+                    } 
+                    break;
+                }
+                default:{
+                    document.write("invalid function")
+                }
+                break;
+            }
+        }
+        SaltLevel(){
+            this.weight;
+            var recommendedIntake = 2300;
+            var sodiumIntake = parseInt(prompt("Enter sodium intake (in mg)"));
+            var saltLevel = ((sodiumIntake / recommendedIntake) * 100);
+            document.write("<h4>SALT TEST</h4>");
+            document.write("your Salt level;" + saltLevel + "<br>");
+            var result = '';
+            var recommendation = '';
+            if (this.weight < 50) {
+                if (saltLevel < 40) {
+                        result = "Hyponatremia (low salt levels)";
+                        recommendation = "Increase salt intake and consult with a doctor";
+                } 
+                else if (saltLevel >= 40 && saltLevel <= 60) {
+                   result = "Normal salt levels";
+                   recommendation = "Maintain current salt intake and continue to monitor salt levels";
+            }  
+                else {
+                    result = "Hypernatremia (high salt levels)";
+                    recommendation = "Reduce salt intake and consult with a doctor";
+               }
+        } 
+                else if (this.weight >= 50 && this.weight <= 60) {
+                     if (saltLevel < 50) {
+                     result = "Hyponatremia (low salt levels)";
+                     recommendation = "Increase salt intake and consult with a doctor";
+                } 
+                   else if (saltLevel >= 50 && saltLevel <= 70) {
+                        result = "Normal salt levels";
+                        recommendation = "Maintain current salt intake and continue to monitor salt levels";
+               } 
+                   else {
+                           result = "Hypernatremia (high salt levels)";
+                            recommendation = "Reduce salt intake and consult with a doctor";
+                   }
+        } 
+                else {
+                     if (saltLevel < 60) {
+                     result = "Hyponatremia (low salt levels)";
+                    recommendation = "Increase salt intake and consult with a doctor";
+               }
+                    else if (saltLevel >= 60 && saltLevel <= 80) {
+                    result = "Normal salt levels";
+                    recommendation = "Maintain current salt intake and continue to monitor salt levels";
+               } 
+                  else {
+                     result = "Hypernatremia (high salt levels)";
+                     recommendation = "Reduce salt intake and consult with a doctor";
+            }
+    }
+
+    document.write("Result:" + result + "Recommendation:" + recommendation + "<br>");
+  }
+  cholestrol(){
+    document.write("<h4>CHOLESTROL LEVEL TEST;</h4>");
+    var LDL=parseInt(prompt('Enter LDL cholestrol Level'));
+    var HDL=parseInt(prompt("Enter HDL cholestrol"));
+    var TotalCholestrol=parseInt(prompt("Enter Total Cholestrol Level"));
+    document.write("your LDL level : "  + LDL + "mg/dl" + "<br>");
+    document.write("your HDL level : "  + HDL + "mg/dl" + "<br>");
+    document.write("your TotalCholestrol level : "  + TotalCholestrol + "mg/dl" + "<br>");
+    if(LDL<100){
+        document.write("<p>your LDL level ; Optimal status best for your health</p>");
+    }
+    else if(LDL>100 && LDL<129){
+        document.write("<p>your LDL Level; NearOptimal status</p> ");
+        document.write("<p>take fluvastatin</p>");
+        document.write("<p>Eating a healthy diet,losing weight</p>" );
+    }
+    else if(LDL>130 && LDL<159){
+        document.write("<p>your LDL Level; Border line High you consider doctor</p>");
+        document.write("<p>Take Atrovastatin</p>");
+    }
+    else if(LDL>160 && LDL<189){
+        document.write("<p>your LDL Level; High you  go consider doctor</p>");
+        document.write("<p>Take Atrovastatin</p>");
+    }
+    else{
+        document.write("<p><strong>your LDL Level; Very High so consider doctor</strong></p>" );
+        document.write("<p>Take Atrovastatin</p>" );
+    }
+
+    if(HDL>=60){
+        document.write("<p>your HDL Level; protective so don't worry</p>");
+    }
+    else{
+        document.write("<p>your HDL Level; A major risk factor for heart diseaseconsider doctor</p>");
+        document.write("<p>Take Atrovastatin</p>");
+    }
+    if(TotalCholestrol<200){
+        document.write("<p>your total cholestro level; Desirable don't worry your safe</p>");
+    }
+    else if(TotalCholestrol>=200 && TotalCholestrol<239){
+        document.write("<p>your total cholestro level; Borderline high you go hospital</p>");
+        document.write("<p>Take Atrovastatin</p>" );
+    }
+    else{
+        document.write("<p>your total cholestrol level;  High so you go hospital</p>");
+        document.write("<p>Take Atrovastatin</p>");
+    }
+  }
+    }
+    class Parent extends GrandParent{
+        calculateBmi(){
+            document.write("<h4>BMI LEVEL</h4>");
+            this.weight;
+            this.height;
+            var bmi = this.weight / (this.height * this.height);
+  
+            if (bmi < 18.5) {
+                document.write("Your BMI is " + bmi + ", which is considered underweight. You should consider increasing your calorie intake with nutrient-dense foods, such as nuts, seeds, lean protein, and healthy fats.");
+        } 
+            else if (bmi >= 18.5 && bmi <= 24.9) {
+            document.write("Your BMI is " + bmi + ", which is considered a healthy weight. Keep up your good work with a balanced diet that includes plenty of fruits, vegetables, whole grains, and lean protein.");
+        } 
+            else if (bmi >= 25 && bmi <= 29.9) {
+            document.write("Your BMI is " + bmi + ", which is considered overweight. Consider reducing your portion sizes and increasing your physical activity to maintain a healthy weight.");
+        }
+            else {
+            document.write("Your BMI is " + bmi + ", which is considered obese. You should speak with a doctor or a registered dietitian for a personalized plan to lose weight and improve your health.");
+          }
+        }
+    }
+    const obj=new Parent();
+    obj.medicalRecord();
+    obj.sugarPrescription();
+    obj.prescriptionBp();
+    obj.hemoglobin();
+    obj.SaltLevel();
+    obj.cholestrol();
+    obj.calculateBmi();
+
+</script>
+</body>
+</html>
